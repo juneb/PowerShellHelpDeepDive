@@ -1,0 +1,92 @@
+TOPIC
+  This help topic describes the WineGlass class in the Wine module.
+
+CLASS
+  WINE
+
+INHERITANCE
+  System.Object
+     Glass :  about_Glass.help.txt
+       WineGlass : about_WineGlass.help.txt
+
+DESCRIPTION
+    The WineGlass class represents a glass of Wine. It is a subclass of the Glass class and its
+    Wine property takes an instance of the Wine class.
+
+
+CONSTRUCTORS
+    WineGlass()
+
+    
+    WineGlass ( [Wine]$Wine, 
+                [int] $Size, 
+                [int] $Pour )
+
+    -Wine:  An instance of the Wine glass.
+    -Size:  The size of the glass in ounces. Valid values are 5-8.
+    -Pour:  The amount of wine in the glass in ounces. Valid values are 0-5.
+
+
+PROPERTIES
+    Wine: An instance of the Wine class
+
+    Size: (Inherited from Glass) 
+          The size of the glass in ounces. Valid values are 5-8.
+
+    CurrentAmount: (Inherited from Glass)
+          The amount of wine in the glass in ounces. Valid values are 0-5.
+          Set by the value of Pour in the WineGlass constructor. Changed by
+          the Sip and Pour methods.
+
+
+METHODS
+
+   [int] Sip ([Int]$Ounces)
+         Removes the specified number of ounces from the 
+         CurrentAmount of Wine in the Glass.
+
+         Returns the CurrentAmount value after the Sip. 
+
+         If the value of $Ounces is greater than the CurrentAmount, the 
+         method fails.
+
+
+   [void] Sip()
+         Calls the Sip method with 1 ounce. No return value.
+
+         If the value of $Ounces is greater than the CurrentAmount, the 
+         method fails.
+
+
+   [int] Pour ([Int]$Ounces)
+         Add the specified number of ounces to the 
+         CurrentAmount of Wine in the Glass.
+
+         Returns the CurrentAmount value after the Pour.
+
+         If the Size of the WineGlass is too small to hold the CurrentAmount
+         plus $Ounces, the method fails.
+         
+
+    [void] Refill()
+         Adds Wine to glass to restore the inital CurrentAmound when the
+         WineGlass was created. No return value.
+
+         If the CurrentAmount is greater than or equal to the initial
+         value of CurrentAmount, the method has no effect. (It writes
+         a Verbose message, not an error.)
+        
+EXAMPLES:
+
+    This example creates a 5-ounce WineGlass with 5 ounces of PSWine by
+    Chateau Snover.
+
+    [WineGlass]::new($PSWine, 5, 5)
+
+    ...
+
+
+RELATED LINKS:
+  about_Glass.help.txt
+  about_Wine.help.txt
+  about_BeerGlass.help.txt
