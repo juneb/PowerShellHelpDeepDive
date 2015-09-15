@@ -1,5 +1,7 @@
 TOPIC
-  This help topic describes the WineGlass class in the Wine module.
+    This topic is designed as a proposed model for About help documentation for scripted classes in Windows PowerShell 5.0.
+    
+    This help topic describes the WineGlass class in the Wine module.
 
 CLASS
   WINE
