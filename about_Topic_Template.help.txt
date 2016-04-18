@@ -1,0 +1,28 @@
+TOPIC                   <---------------- Line 1, character 1
+    about_<TopicName>   <------ 'about' lower case, remainder in camel-case/Pascal-case; matches filename
+
+SHORT DESCRIPTION
+
+LONG DESCRIPTION
+    
+  <OPTIONAL SUBTOPICS>
+
+NOTE
+
+TROUBLESHOOTING NOTE
+
+EXAMPLES
+
+SEE ALSO
+    List related PowerShell help topics.
+    You can also list related articles, blogs, and videos with their URLs.
+
+KEYWORDS
+    List alternate names or titles for this topic or its content that readers
+    might use if they don't know the topic name. Get-Help finds the keywords
+    during its full-text search.    
+
+
+
+
+
