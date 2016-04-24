@@ -1,19 +1,25 @@
-TOPIC                   <---------------- Line 1, character 1
-    about_<TopicName>   <------ 'about' lower case, remainder in camel-case/Pascal-case; matches filename
-
-SHORT DESCRIPTION
-
+TOPIC                              Line 1, column 1   # Used by Get-Help About*
+    about_<TopicName>              Line 2, column 5   # and other post-processing tools
+                                   Line 3 (blank)     
+SHORT DESCRIPTION                  Line 4, column 1
+    <description>                  Line 5, column 5
+                                   
+                                   # File encoding: UTF-8
+                                   # Line length:   80 chars
 LONG DESCRIPTION
     
   <OPTIONAL SUBTOPICS>
 
+EXAMPLES
+
 NOTE
 
 TROUBLESHOOTING NOTE
-
-EXAMPLES
+   <Bugs that you are likely to fix. Warns users that the current behavior 
+    is likely to change.>
 
 SEE ALSO
+    <Topic> wiki on GitHub:  https://github.com/MyTopic    # Link to your Github wiki
     List related PowerShell help topics.
     You can also list related articles, blogs, and videos with their URLs.
 
