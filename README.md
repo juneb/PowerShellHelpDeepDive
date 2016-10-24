@@ -21,7 +21,8 @@ More presentation content by JuneB:<br>[**Pester Test-Driven Development**](http
 - Sample of help written by using the checklists: [Get-LoremIpsum-help.xml](https://github.com/juneb/PowerShellHelpDeepDive/blob/master/Get-LoremIpsum-help.xml)
 - Template for comment-based help syntax: [Comment-based-help-template.txt](https://github.com/juneb/PowerShellHelpDeepDive/blob/master/Comment-based-help-template.txt)
 
-## Professional PowerShell Help for Modules<br>(PowerShell Conference Europe 2016)
+## Professional PowerShell Help for Modules<br>&nbsp;-- PowerShell Conference Europe 2016<br>&nbsp;-- PowerShell Conference Asia 2016
+-- 
 - Presentation slides: [PowerShellHelpForModules.zip](https://github.com/juneb/PowerShellHelpDeepDive/blob/master/PowerShellHelpForModules.zip)<br>
 (Also at [http://www.slideshare.net/JuneBlender/professional-help-for-powershell-modules](http://www.slideshare.net/JuneBlender/professional-help-for-powershell-modules))
 - About topic template: [about\\_Topic\_Template.help.txt](https://github.com/juneb/PowerShellHelpDeepDive/blob/master/about_Topic_Template.help.txt)
