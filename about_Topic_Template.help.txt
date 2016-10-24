@@ -26,9 +26,4 @@ SEE ALSO
 KEYWORDS
     List alternate names or titles for this topic or its content that readers
     might use if they don't know the topic name. Get-Help finds the keywords
-    during its full-text search.    
-
-
-
-
-
+    during its full-text search.
