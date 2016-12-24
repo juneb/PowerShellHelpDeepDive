@@ -1,15 +1,15 @@
 ﻿<#	
 	.NOTES
 		===========================================================================
-		Created with: 	SAPIEN Technologies, Inc., PowerShell Studio 2016 v5.2.119
-		Created on:   	4/12/2016 1:11 PM
-		Created by:   	June Blender
-		Organization: 	SAPIEN Technologies, Inc
+		Created with:	SAPIEN Technologies, Inc., PowerShell Studio 2016 v5.2.119
+		Created on:		4/12/2016 1:11 PM
+		Created by:		June Blender
+		Organization:	SAPIEN Technologies, Inc
 		Filename:		*.Help.Tests.ps1
 		===========================================================================
 	.DESCRIPTION
 	Test help for a module. You can run this Tests file from any location. 
-    To specify the module to test, enter values for the $ModuleName and $RequiredVersion variables.
+	To specify the module to test, enter values for the $ModuleName and $RequiredVersion variables.
 
 	For a help test that is located in a module directory, use https://github.com/juneb/PesterTDD/InModule.Help.Tests.ps1
 #>
@@ -23,7 +23,7 @@ $RequiredVersion = '1.0.0.0'
 
 Get-Module $ModuleName | Remove-Module
 Import-Module $ModuleName -RequiredVersion $RequiredVersion -ErrorAction Stop
-$commands = Get-Command -FullyQualifiedModule @{ ModuleName = $ModuleName;  RequiredVersion=$RequiredVersion}
+$commands = Get-Command -FullyQualifiedModule @{ ModuleName = $ModuleName;	RequiredVersion=$RequiredVersion}
 
 ## When testing help, remember that help is cached at the beginning of each session.
 ## To test, restart session.
@@ -35,8 +35,24 @@ foreach ($command in $commands)
 	Describe "Test help for $commandName" {
 		
 		# If help is not found, synopsis in auto-generated help is the syntax diagram
-		It "should not be auto-generated" {
-			(Get-Help $command -ErrorAction SilentlyContinue).Synopsis | Should Not BeLike '*`[`<CommonParameters`>`]*'
+		It "synopsis should not be empty or auto-generated" {
+			
+			$HelpSynopsis = (Get-Help $command -ErrorAction SilentlyContinue).Synopsis
+			
+			$HelpSynopsisBegin = $HelpSynopsis.SubString(0, $HelpSynopsis.IndexOf('[') + 2)
+			
+			$HelpSynopsisEnd = $HelpSynopsis.SubString($HelpSynopsis.length - 1, 1)
+				
+				$HelpSynopsis | Should not BeNullOrEmpty
+				
+				$HelpSynopsisBegin | Should Not Be "$commandName [["
+				
+				$HelpSynopsisEnd | Should Not Be ']'
+				
+				$HelpSynopsis | Should Not Be $commandName
+				
+				
+			}
 		}
 		
 		# Should be a description for every function

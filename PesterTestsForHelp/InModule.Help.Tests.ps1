@@ -46,10 +46,22 @@ foreach ($command in $commands)
 	Describe "Test help for $commandName" {
 		
 		# If help is not found, synopsis in auto-generated help is the syntax diagram
-		It "should not be auto-generated" {
-			(Get-Help $command -ErrorAction SilentlyContinue).Synopsis | Should Not BeLike '*`[`<CommonParameters`>`]*'
+		It "synopsis should not be empty or auto-generated" {
+			$HelpSynopsis = (Get-Help $command -ErrorAction SilentlyContinue).Synopsis
+			
+			$HelpSynopsisBegin = $HelpSynopsis.SubString(0, $HelpSynopsis.IndexOf('[') + 2)
+			
+			$HelpSynopsisEnd = $HelpSynopsis.SubString($HelpSynopsis.length - 1, 1)
+			
+			$HelpSynopsis | Should not BeNullOrEmpty
+			
+			$HelpSynopsisBegin | Should Not Be "$commandName [["
+			
+			$HelpSynopsisEnd | Should Not Be ']'
+			
+			$HelpSynopsis | Should Not Be $commandName
+			
 		}
-		
 		# Should be a description for every function
 		It "gets description for $commandName" {
 			(Get-Help $command -ErrorAction SilentlyContinue).Description | Should Not BeNullOrEmpty
